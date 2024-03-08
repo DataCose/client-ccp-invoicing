@@ -1,0 +1,2 @@
+git+ssh://git@github.com/DataCose/automation-sdk.git@7ca8ab09b1fdc855e0141b855f1070dd0a545d1b#subdirectory=src/datacose
+git+ssh://git@github.com/DataCose/automation-sdk.git@7ca8ab09b1fdc855e0141b855f1070dd0a545d1b#subdirectory=src/datacose-shipstation
