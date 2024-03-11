@@ -21,6 +21,7 @@ logger = getLogger("ExportShipstationShipments")
 class ShipmentCSVLine:
     print_date: datetime.date
     ship_id: int
+    order_id: int
     items: str
     qty: int
     ship_date: datetime.date
@@ -33,8 +34,6 @@ class ShipmentCSVLine:
     service: str
     country: str
     cost: float
-    zone: str
-    description: str
 
 
 class ExportShipstationShipments:
@@ -70,14 +69,14 @@ class ExportShipstationShipments:
             ),
         )
 
-        logger.info("Succesfully got shipments")
+        logger.info("Successfully got shipments")
 
     def get_carriers(self):
         carriers: List[
             ShipstationShippingProvider
         ] = ShipstationShippingProvider.filter(SHIPSTATION_ADMIN)
         self.carrier_code_carrier_map = {carrier.code: carrier for carrier in carriers}
-        logger.info("Succesfully got carriers")
+        logger.info("Successfully got carriers")
 
     def get_services(self):
         for carrier_code in self.carrier_code_carrier_map.keys():
@@ -85,7 +84,7 @@ class ExportShipstationShipments:
                 initializer=SHIPSTATION_ADMIN, carrier_code=carrier_code
             ):
                 self.shipstation_service_map[service.code] = service
-        logger.info("Succesfully got carrier services")
+        logger.info("Successfully got carrier services")
 
     def get_orders(self):
         order_ids = {shipment.order_id for shipment in self.shipstation_shipments}
@@ -106,7 +105,7 @@ class ExportShipstationShipments:
                 order_id, initializer=SHIPSTATION_ADMIN
             )
             self.shipstation_order_map[shipstation_order.order_id] = shipstation_order
-        logger.info("Succesfully got orders")
+        logger.info("Successfully got orders")
 
     def prepare_csv_lines(self):
         for shipment in self.shipstation_shipments:
@@ -122,6 +121,7 @@ class ExportShipstationShipments:
                 csv_line = ShipmentCSVLine(
                     print_date=shipment.create_date,
                     ship_id=shipment.shipment_id,
+                    order_id=shipment.order_id,
                     items=item.name,
                     qty=item.quantity,
                     ship_date=shipment.ship_date,
@@ -133,18 +133,16 @@ class ExportShipstationShipments:
                     carrier=carrier_name,
                     service=service_name,
                     country=shipment.ship_to.country,
-                    cost=shipment.shipment_cost,
-                    zone="",
-                    description="",
+                    cost=shipment.shipment_cost
                 )
                 self.csv_lines.append(csv_line)
-        logger.info("Succesfully prepared csv lines")
+        logger.info("Successfully prepared csv lines")
 
     def write_csv(self):
         if not self.csv_lines:
             return
 
-        with self.out.open("w") as f:
+        with self.out.open("w", encoding='utf-8') as f:
             fieldnames = list(asdict(self.csv_lines[0]).keys())
 
             writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -152,10 +150,28 @@ class ExportShipstationShipments:
             writer.writeheader()
             for csv_line in self.csv_lines:
                 writer.writerow(asdict(csv_line))
-        logger.info("Succesfully created csv file")
+        logger.info("Successfully created csv file")
+
+
+def get_order(order_id):
+    order = ShipsationOrder.from_id(initializer=SHIPSTATION_ADMIN, _id=order_id)
+    return order
+
+
+def get_services():
+    # shipment = ShipstationShipment.from_id(initializer=SHIPSTATION_ADMIN, _id="220275386")
+    # carriers = ShipstationShippingProvider(initialer=SHIPSTATION_ADMIN, )
+    services = ShipstationService.filter(initializer=SHIPSTATION_ADMIN, carrier_code='fedex')
+    return services
 
 
 if __name__ == "__main__":
-    ExportShipstationShipments(
-        datetime.date(2024, 2, 1), datetime.date(2024, 2, 29)
-    ).run()
+    # ExportShipstationShipments(
+    #     datetime.date(2024, 2, 1), datetime.date(2024, 2, 29)
+    # ).run()
+
+    order = get_order('367476033')
+    print(order)
+
+    # services = get_services()
+    # print(services)

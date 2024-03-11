@@ -1,0 +1,47 @@
+{
+  "fedex": {
+    "1": ["CA", "MX", "PR"],
+    "A": ["HK"],
+    "B": ["KR", "CN", "PH", "TW", "TH", "ID", "SG", "MY"],
+    "C": ["VC", "DO", "GP", "VN", "MF", "NZ", "AG", "VG", "BL", "TT", "BQ", "AU", "LA", "LC", "VI", "GD", "CW", "NF", "SX", "TC", "KN", "AW", "MS", "DM", "HT", "JM", "AI", "KY"],
+    "D": ["ME", "NO", "PT", "BE", "AD", "LU", "DE", "GR", "FR", "MC", "NL", "LI", "IT", "ES", "GL", "RS", "MT", "VA", "DK", "FO", "SM", "CH", "AT", "SE", "FI"],
+    "E": ["QA", "CY", "LK", "BH", "PS", "BD", "IQ", "MV", "AE", "IL", "TR", "EG", "PK", "LY", "BT", "NP", "IN", "LB", "AF", "YE", "SY", "JO", "OM", "KW"],
+    "F": ["MP", "BG", "AL", "BZ", "SR", "LT", "NC", "CZ", "PG", "KZ", "PY", "BA", "BO", "HR", "GT", "NI", "AR", "PE", "VE", "CK", "UA", "LV", "PA", "SV", "GF", "MD", "GU", "TL", "AZ", "RO", "BY", "UY", "VU", "KG", "EE", "EC", "CL", "HN", "CO", "RU", "SI", "GE", "MK", "HU", "UZ", "GY", "WS", "BR", "SK", "TO", "AM", "CR", "PL", "FJ"],
+    "G": ["LS", "SC", "LR", "TG", "BI", "AO", "MN", "RW", "MW", "MH", "GH", "UG", "GM", "ML", "DZ", "CV", "BJ", "WF", "TD", "GI", "PW", "SZ", "NA", "GN", "BF", "ER", "IS", "MR", "PF", "FM", "MA", "RE", "ZM", "BW", "MZ", "ET", "MG", "CM", "CG", "TZ", "KE", "SA", "GA", "AS", "NE", "NG", "CD", "SN", "CI", "TN", "ZW", "ZA", "MU", "DJ"],
+    "H": ["JP"],
+    "J": ["IE", "GB"]
+  },
+  "ups": {
+    "84": ["MX"],
+    "901": ["BE", "GB", "FR", "DE", "NL", "HK", "IE", "IT", "JP", "LU", "MO", "MC", "SM", "SG", "TW", "VA"],
+    "902": ["AI", "AG", "AW", "BS", "BB", "BM", "AN", "VG", "KY", "DM", "DO", "GD", "GP", "HT", "JM", "MQ", "MS", "KN", "VI", "LC", "VC", "TT", "TC", "CW"],
+    "903": ["AX", "AT", "PT", "ES", "GE", "JE", "DK", "FO", "FI", "GR", "GL", "IS", "LI", "NO", "SE", "CH"],
+    "904": ["AU", "CN", "GU", "ID", "KR", "MY", "MN", "NZ", "PH", "TH", "VN"],
+    "905": ["BH", "BD", "BT", "BN", "CY", "TP", "EG", "IN", "IQ", "IL", "JO", "KW", "LB", "NP", "OM", "PK", "QA", "SA", "LK", "TR", "AE", "YE"],
+    "906": ["AR", "BZ", "BO", "BR", "CL", "CO", "CE", "EC", "SV", "GF", "GT", "GY", "HN", "NI", "PA", "PY", "PE", "SR", "UY", "VE"],
+    "907": ["AL", "DZ", "AS", "AD", "AM", "AZ", "BY", "BA", "BG", "KH", "CK", "HR", "CZ", "EE", "FJ", "PF", "GE", "GI", "HU", "KZ", "KI", "KG", "LA", "LV", "LY", "LT", "MK", "MV", "MT", "MH", "FM", "MD", "MA", "NC", "NF", "MP", "PW", "PG", "PL", "RO", "RU", "CS", "SK", "SI", "SB", "TJ", "TO", "TN", "TM", "TV", "UA", "UZ", "VU", "WF", "WS", "RS"],
+    "908": ["AO", "BJ", "BW", "BF", "BI", "CM", "CV", "CF", "TD", "CD", "CG", "CI", "DJ", "GQ", "ER", "ET", "GA", "GM", "GH", "GN", "GW", "KE", "LS", "LR", "MG", "MW", "ML", "MR", "MU", "MZ", "NA", "NE", "NG", "RE", "RW", "SN", "SC", "SL", "ZA", "SZ", "TZ", "TG", "UG", "ZM", "ZW"]
+  },
+  "usps": {
+    "1": ["CA"],
+    "2": ["MX"],
+    "3": ["AL", "AM", "AZ", "BY", "BA", "BG", "HR", "CZ", "EE", "GE", "HU", "XK", "LV", "LT", "MD", "ME", "MK", "PL", "RO", "RS", "SK", "SI", "UA"],
+    "4": ["AD", "AT", "BE", "DK", "FI", "GI", "GR", "IE", "IL", "IT", "LI", "LU", "NL", "PT", "PM", "ES", "TR", "VA"],
+    "5": ["FO", "GL", "IS", "MT", "NO", "SM", "SE", "CH"],
+    "6": ["BH", "BD", "BN", "MM", "KH", "FJ", "IN", "ID", "IQ", "KI", "KW", "LA", "LB", "MO", "MV", "NR", "NP", "OM", "PK", "PH", "PN", "SA", "SG", "SB", "LK", "SY", "TH", "TO", "TM", "TV", "VN", "WF"],
+    "7": ["AF", "BT", "CY", "PF", "IR", "JO", "KZ", "KG", "MY", "MN", "NC", "PG", "QA", "WS", "TW", "TJ", "TL", "AE", "UZ", "VU", "YE"],
+    "8": ["AO", "BI", "CV", "TD", "KM", "CG", "CI", "EG", "GQ", "SZ", "GA", "GM", "GN", "ML", "MR", "MU", "NA", "RE", "ST", "SN", "SC", "SS", "ZM", "ZW"],
+    "9": ["DZ", "BJ", "BW", "BF", "CM", "CF", "CD", "DJ", "ER", "ET", "GH", "GW", "KE", "LS", "LR", "LY", "MG", "MW", "MA", "MZ", "NE", "NG", "RW", "SH", "SL", "ZA", "SD", "TZ", "TG", "TN", "UG"],
+    "10": ["AI", "AG", "AR", "BS", "BB", "BZ", "BM", "VG", "CO", "EC", "GD", "GT", "HT", "MS", "NI", "PY", "KN", "VC", "TT", "TC"],
+    "11": ["AW", "KY", "CL", "CR", "CU", "CW", "DM", "DO", "SV", "GF", "GP", "GY", "HN", "JM", "MQ", "PA", "PE", "LC", "SX", "SR", "UY", "VE"],
+    "12": ["AU", "NZ"],
+    "13": ["BR"],
+    "14": ["CN"],
+    "15": ["FR"],
+    "16": ["DE"],
+    "17": ["JP"],
+    "18": ["HK", "KR"],
+    "19": ["RU"],
+    "20": ["GB"]
+  }
+}
