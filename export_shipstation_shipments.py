@@ -34,6 +34,7 @@ class ShipmentCSVLine:
     service: str
     country: str
     cost: float
+    sku: str
 
 
 class ExportShipstationShipments:
@@ -133,7 +134,8 @@ class ExportShipstationShipments:
                     carrier=carrier_name,
                     service=service_name,
                     country=shipment.ship_to.country,
-                    cost=shipment.shipment_cost
+                    cost=shipment.shipment_cost,
+                    sku=item.sku,
                 )
                 self.csv_lines.append(csv_line)
         logger.info("Successfully prepared csv lines")
@@ -142,7 +144,7 @@ class ExportShipstationShipments:
         if not self.csv_lines:
             return
 
-        with self.out.open("w", encoding='utf-8') as f:
+        with self.out.open("w", encoding="utf-8") as f:
             fieldnames = list(asdict(self.csv_lines[0]).keys())
 
             writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -161,7 +163,9 @@ def get_order(order_id):
 def get_services():
     # shipment = ShipstationShipment.from_id(initializer=SHIPSTATION_ADMIN, _id="220275386")
     # carriers = ShipstationShippingProvider(initialer=SHIPSTATION_ADMIN, )
-    services = ShipstationService.filter(initializer=SHIPSTATION_ADMIN, carrier_code='fedex')
+    services = ShipstationService.filter(
+        initializer=SHIPSTATION_ADMIN, carrier_code="fedex"
+    )
     return services
 
 
@@ -170,7 +174,7 @@ if __name__ == "__main__":
     #     datetime.date(2024, 2, 1), datetime.date(2024, 2, 29)
     # ).run()
 
-    order = get_order('367476033')
+    order = get_order("367476033")
     print(order)
 
     # services = get_services()
