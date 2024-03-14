@@ -110,6 +110,8 @@ class ExportShipstationShipments:
 
     def prepare_csv_lines(self):
         for shipment in self.shipstation_shipments:
+            if shipment.voided:
+                continue
             order = self.shipstation_order_map.get(shipment.order_id)
             for item in shipment.shipment_items:
                 carrier_name = ""
@@ -170,12 +172,6 @@ def get_services():
 
 
 if __name__ == "__main__":
-    # ExportShipstationShipments(
-    #     datetime.date(2024, 2, 1), datetime.date(2024, 2, 29)
-    # ).run()
-
-    order = get_order("367476033")
-    print(order)
-
-    # services = get_services()
-    # print(services)
+    ExportShipstationShipments(
+        datetime.date(2024, 2, 1), datetime.date(2024, 2, 29), Path("tr_out.csv")
+    ).run()
