@@ -1,16 +1,21 @@
 {
   "fedex": {
-    "1": ["CA", "MX", "PR"],
-    "A": ["HK"],
-    "B": ["KR", "CN", "PH", "TW", "TH", "ID", "SG", "MY"],
-    "C": ["VC", "DO", "GP", "VN", "MF", "NZ", "AG", "VG", "BL", "TT", "BQ", "AU", "LA", "LC", "VI", "GD", "CW", "NF", "SX", "TC", "KN", "AW", "MS", "DM", "HT", "JM", "AI", "KY"],
-    "D": ["ME", "NO", "PT", "BE", "AD", "LU", "DE", "GR", "FR", "MC", "NL", "LI", "IT", "ES", "GL", "RS", "MT", "VA", "DK", "FO", "SM", "CH", "AT", "SE", "FI"],
-    "E": ["QA", "CY", "LK", "BH", "PS", "BD", "IQ", "MV", "AE", "IL", "TR", "EG", "PK", "LY", "BT", "NP", "IN", "LB", "AF", "YE", "SY", "JO", "OM", "KW"],
-    "F": ["MP", "BG", "AL", "BZ", "SR", "LT", "NC", "CZ", "PG", "KZ", "PY", "BA", "BO", "HR", "GT", "NI", "AR", "PE", "VE", "CK", "UA", "LV", "PA", "SV", "GF", "MD", "GU", "TL", "AZ", "RO", "BY", "UY", "VU", "KG", "EE", "EC", "CL", "HN", "CO", "RU", "SI", "GE", "MK", "HU", "UZ", "GY", "WS", "BR", "SK", "TO", "AM", "CR", "PL", "FJ"],
-    "G": ["LS", "SC", "LR", "TG", "BI", "AO", "MN", "RW", "MW", "MH", "GH", "UG", "GM", "ML", "DZ", "CV", "BJ", "WF", "TD", "GI", "PW", "SZ", "NA", "GN", "BF", "ER", "IS", "MR", "PF", "FM", "MA", "RE", "ZM", "BW", "MZ", "ET", "MG", "CM", "CG", "TZ", "KE", "SA", "GA", "AS", "NE", "NG", "CD", "SN", "CI", "TN", "ZW", "ZA", "MU", "DJ"],
-    "H": ["JP"],
-    "J": ["IE", "GB"]
-  },
+    "M": ["AF","AL","DZ","AS","AO","AM","AZ","BY","BJ","BA","BW","BF","BI","KH","CM","CV","CF","TD","CG","CK","HR","CD","DJ","TL","GQ","ER","SZ","ET","FJ","PF","GA","GM","GE","GH","GN","GW","IQ","CI","KZ","KE","KG","LA","LS","LR","LY","MK","MG","MW","ML","MH","MR","MU","FM","MD","MN","ME","MA","MZ","NA","NC","NE","NG","PW","PG","RE","RW","MP","WS","SN","RS","SC","SL","TZ","TG","TO","TN","TM","UG","UA","UZ","VU","WF","ZM","ZW"],
+    "H": ["AD","AT","PT","DK","FO","FI","GR","GL","IS","LI","PT","MT","NO","PT","ES","SE","CH"],
+    "I": ["AI","AG","AW","BS","BB","AG","BM","BQ","VG","KY","CW","DM","DO","GD","GP","HT","JM","MQ","MS","BQ","BL","VI","BQ","KN","LC","SX","VC","TT","TC"],
+    "L": ["AR","BZ","BO","BR","CL","CO","CR","EC","SV","GF","GT","GY","HN","NI","PA","PY","PE","SR","UY","VE"],
+    "J": ["AU","GU","ID","MO","MY","NZ","PH","TH","VN"],
+    "K": ["BH","BN","CY","EG","IL","JO","KW","LB","OM","PS","QA","SA","SY","TR","AE","YE "],
+    "O": ["BD","BT","IN","MV","NP","PK","LK"],
+    "D": ["BE","GB","FR","DE","IE","IT","LU","MC","NL","SM","VA"],
+    "E": ["BG","CZ","EE","GI","HU","LV","LT","PL","RO","RU","SK","SI","ZA"],
+    "B": ["CA"],
+    "A": ["CA"],
+    "N": ["CN"],
+    "F": ["HK","SG","TW"],
+    "G": ["JP","KR"],
+    "C": ["MX"]
+},
   "ups": {
     "84": ["MX"],
     "901": ["BE", "GB", "FR", "DE", "NL", "HK", "IE", "IT", "JP", "LU", "MO", "MC", "SM", "SG", "TW", "VA"],
