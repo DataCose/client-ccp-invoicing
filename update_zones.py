@@ -40,5 +40,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    update_zones(Path("old_output.csv"))
+    main()
+    # update_zones(Path("old_output.csv"))
