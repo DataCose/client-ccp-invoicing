@@ -1,8 +1,9 @@
 import csv
 import datetime
+import logging
 from dataclasses import asdict, dataclass
-from logging import getLogger
 from pathlib import Path
+from time import sleep
 from typing import Dict, List, Optional
 
 from platforms.shipstation.initializers import SHIPSTATION_ADMIN
@@ -14,7 +15,16 @@ from platforms.shipstation.models import (
     ShipstationShippingProvider,
 )
 
-logger = getLogger("ExportShipstationShipments")
+logger = logging.getLogger("ExportShipstationShipments")
+logging.basicConfig(
+    filename="out.log", level=logging.INFO, filemode="w", encoding="utf8"
+)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(
+    logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+)
+logger.addHandler(console_handler)
 
 
 @dataclass
@@ -54,6 +64,7 @@ class ExportShipstationShipments:
         self.out = output_path
 
     def run(self):
+        logger.info("Script started")
         self.get_shipments()
         self.get_carriers()
         self.get_services()
@@ -62,13 +73,20 @@ class ExportShipstationShipments:
         self.write_csv()
 
     def get_shipments(self):
-        self.shipstation_shipments = ShipstationShipment.filter(
-            initializer=SHIPSTATION_ADMIN,
-            query=ShipmentQuery(
-                shipDateStart=self.from_date.isoformat(),
-                shipDateEnd=self.to_date.isoformat(),
-            ),
-        )
+        retry_count = 0
+        while retry_count < 5:
+            self.shipstation_shipments = ShipstationShipment.filter(
+                initializer=SHIPSTATION_ADMIN,
+                query=ShipmentQuery(
+                    shipDateStart=self.from_date.isoformat(),
+                    shipDateEnd=self.to_date.isoformat(),
+                ),
+            )
+            if self.shipstation_shipments:
+                break
+            else:
+                retry_count += 1
+                logger.info(str(retry_count) + "th try to Get Shipments")
 
         logger.info("Successfully got shipments")
 
@@ -102,10 +120,22 @@ class ExportShipstationShipments:
         for order_id in order_ids:
             if order_id in self.shipstation_order_map:
                 continue
-            shipstation_order = ShipsationOrder.from_id(
-                order_id, initializer=SHIPSTATION_ADMIN
-            )
-            self.shipstation_order_map[shipstation_order.order_id] = shipstation_order
+
+            retry_count = 0
+            while retry_count < 5:
+                try:
+                    shipstation_order = ShipsationOrder.from_id(
+                        order_id, initializer=SHIPSTATION_ADMIN
+                    )
+                    self.shipstation_order_map[
+                        shipstation_order.order_id
+                    ] = shipstation_order
+                    break
+                except:
+                    sleep(2**retry_count)
+                    retry_count += 1
+            else:
+                logger.warning("Skipped order: " + str(order_id))
         logger.info("Successfully got orders")
 
     def prepare_csv_lines(self):
@@ -113,6 +143,14 @@ class ExportShipstationShipments:
             if shipment.voided:
                 continue
             order = self.shipstation_order_map.get(shipment.order_id)
+            if not order:
+                continue
+            elif not shipment.shipment_items:
+                logger.warning(
+                    "Shipment items do not exist for Shipment "
+                    + str(shipment.shipment_id)
+                )
+                continue
             for item in shipment.shipment_items:
                 carrier_name = ""
                 if carrier := self.carrier_code_carrier_map.get(shipment.carrier_code):
@@ -144,6 +182,7 @@ class ExportShipstationShipments:
 
     def write_csv(self):
         if not self.csv_lines:
+            logger.warning("Nothing to write")
             return
 
         with self.out.open("w", encoding="utf-8") as f:
@@ -173,5 +212,7 @@ def get_services():
 
 if __name__ == "__main__":
     ExportShipstationShipments(
-        datetime.date(2024, 2, 1), datetime.date(2024, 2, 29), Path("tr_out.csv")
+        datetime.date(2024, 1, 1),
+        datetime.date(2024, 2, 29),
+        Path("warrior_out_01_01_02_29_2024.csv"),
     ).run()
