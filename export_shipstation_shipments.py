@@ -110,7 +110,7 @@ class ExportShipstationShipments:
 
         orders = ShipsationOrder.filter_by_date(
             initializer=SHIPSTATION_ADMIN,
-            start_date=self.from_date - datetime.timedelta(days=15),
+            start_date=self.from_date - datetime.timedelta(days=30),
             end_date=self.to_date,
         )
 
@@ -212,7 +212,7 @@ def get_services():
 
 if __name__ == "__main__":
     ExportShipstationShipments(
-        datetime.date(2024, 1, 1),
-        datetime.date(2024, 2, 29),
-        Path("warrior_out_01_01_02_29_2024.csv"),
+        datetime.date(2024, 3, 1),
+        datetime.date(2024, 3, 31),
+        Path("ga_out.csv"),
     ).run()
