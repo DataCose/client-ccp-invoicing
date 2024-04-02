@@ -14,7 +14,8 @@
     "N": ["CN"],
     "F": ["HK","SG","TW"],
     "G": ["JP","KR"],
-    "C": ["MX"]
+    "C": ["MX"],
+    "PR": ["PR"]
 },
   "ups": {
     "M": ["AF","AL","DZ","AS","AO","AM","AZ","BY","BJ","BA","BW","BF","BI","KH","CM","CV","CF","TD","CG","CK","HR","CD","DJ","TL","GQ","ER","SZ","ET","FJ","PF","GA","GM","GE","GH","GN","GW","IQ","CI","KZ","KE","KG","LA","LS","LR","LY","MK","MG","MW","ML","MH","MR","MU","FM","MD","MN","ME","MA","MZ","NA","NC","NE","NG","PW","PG","RE","RW","MP","WS","SN","RS","SC","SL","TZ","TG","TO","TN","TM","UG","UA","UZ","VU","WF","ZM","ZW"],
@@ -31,7 +32,8 @@
     "N": ["CN"],
     "F": ["HK","SG","TW"],
     "G": ["JP","KR"],
-    "C": ["MX"]
+    "C": ["MX"],
+    "PR": ["PR"]
 },
   "usps": {
     "1": ["CA"],
