@@ -181,12 +181,25 @@ if __name__ == "__main__":
         "TonyRobbins": {
             "raw_shipstation_export_file": "tr_out.csv",
             "projects": [
-                "TR UPW MARCH 2024",
-                "TR Employee Welcome Kit",
                 "2024 TR Contractor Boxes",
+                "Life Mastery Virtual April 2024 - English Leadership no Book        ",
+                "Life Mastery Virtual April 2024 - English no Book",
+                "Life Mastery Virtual April 2024 - English with Book",
+                "Life Mastery Virtual Sept 2023 - Spanish",
                 "Life Mastery Virtual Sept 2023 (workbook only)",
-                "TR PLATINUM BIRTHDAYS",
+                "Platinum S&D March 2024",
+                "RRI EMPLOYEE GIFT MARCH 2024",
                 "TR BM1 JAN 2024",
+                "TR Employee Welcome Kit",
+                "TR Holiday Gift Boxes 2023",
+                # "TR Holiday Gift Boxes 2023/ TR Mastery Enrollment Gifts Dec 2023/ TR Employee Gifts March 2024/2024 TR Contractor Boxes",
+                "TR LMV April 2024",
+                "TR Mastery Enrollment Gifts",
+                "TR MISCELLANEOUS",
+                "TR PLATINUM BIRTHDAYS",
+                "TR Trainer & Sr Leader Shirts 2024",
+                "TR UPW MARCH 2024",
+                "TR UPW MARCH 2024 Spanish",
             ],
         },
         "WakeUpWarrior": {
@@ -206,7 +219,7 @@ if __name__ == "__main__":
             "projects": [None],
         },
     }
-    CLIENT_NAME = "DG"
+    CLIENT_NAME = "TonyRobbins"
     for project in (client_data := client_projects.get(CLIENT_NAME, {})).get(
         "projects", []
     ):

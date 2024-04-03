@@ -88,7 +88,7 @@ class ExportShipstationShipments:
                 retry_count += 1
                 logger.info(str(retry_count) + "th try to Get Shipments")
 
-        logger.info("Successfully got shipments")
+        logger.info(f"Successfully got {len(self.shipstation_shipments)} shipments")
 
     def get_carriers(self):
         carriers: List[
@@ -141,9 +141,11 @@ class ExportShipstationShipments:
     def prepare_csv_lines(self):
         for shipment in self.shipstation_shipments:
             if shipment.voided:
+                logger.warning("Shipment is voided " + str(shipment.shipment_id))
                 continue
             order = self.shipstation_order_map.get(shipment.order_id)
             if not order:
+                logger.warning("Shipment Order not found " + str(shipment.shipment_id))
                 continue
             elif not shipment.shipment_items:
                 logger.warning(
@@ -214,5 +216,5 @@ if __name__ == "__main__":
     ExportShipstationShipments(
         datetime.date(2024, 3, 1),
         datetime.date(2024, 3, 31),
-        Path("ga_out.csv"),
+        Path("tr_out.csv"),
     ).run()
